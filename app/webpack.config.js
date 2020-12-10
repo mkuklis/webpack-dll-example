@@ -20,11 +20,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src", "index.html")
+      template: path.resolve(__dirname, "src", "index.html"),
     }),
     new webpack.DllReferencePlugin({
-      context:  path.join(__dirname, '../vendor/output'),
-      manifest: path.join(__dirname, '../vendor/output', 'vendor-manifest.json')
+      context: __dirname,
+      manifest: path.join(__dirname, '..', 'vendor', 'output', 'vendor-manifest.json'),
+      name: 'vendor',
     }),
   ],
 };
